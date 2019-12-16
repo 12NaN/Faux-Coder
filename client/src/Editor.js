@@ -5,14 +5,13 @@ import Pusher from "pusher-js";
 import pushid from "pushid";
 import axios from "axios";
 import {Button} from 'react-bootstrap';
-import Output from "./components/Output";
 import "./App.css";
-import "codemirror/lib/codemirror.css";
-import "codemirror/theme/material.css";
+//import "codemirror/lib/codemirror.css";
+//import "codemirror/theme/material.css";
 
-require("codemirror/lib/codemirror.css");
-require("codemirror/mode/clike/clike");
-require("codemirror/theme/dracula.css");
+//require("codemirror/lib/codemirror.css");
+//require("codemirror/mode/clike/clike");
+//require("codemirror/theme/dracula.css");
 class Editor extends Component {
   constructor() {
     super();
