@@ -12,22 +12,7 @@ $(() => {
       }
 
     //Programming languages mapped to their corresponding templates
-    var source_template={
-          "C" : "#include <stdio.h>\nint main(void) {\n\t// your code goes here\n\treturn 0;\n}",
-          "CPP" : "#include <iostream>\nusing namespace std;\nint main() {\n\t// your code goes here\n\treturn 0;\n}",
-          "CPP11" : "#include <iostream>\nusing namespace std;\nint main() {\n\t// your code goes here\n\treturn 0;\n}",
-          "CLOJURE" : "; your code goes here",
-          "CSHARP" : "using System;\npublic class Test{\n\tpublic static void Main(){\n\t// your code goes here\n\t}\n}",
-          "JAVA" : "/* package whatever; // don't place package name! */\nimport java.util.*;\nimport java.lang.*;\nimport java.io.*;\n\
-        /* Name of the class has to be \"Main\" only if the class is public. */\nclass Ideone{\n\t\
-        public static void main (String[] args) throws java.lang.Exception{\n\t\t// your code goes here\n\t}\n}",
-          "JAVASCRIPT":"// your code goes here",
-          "HASKELL":"main = -- your code goes here",
-          "PERL":"#!/usr/bin/perl\n# your code goes here",
-          "PHP":"<?php\n\n// your code goes here",
-          "PYTHON":"# your code goes here",
-          "RUBY":"# your code goes here"
-        }  
+
     
     //setting up the Ace Editor screen
 
@@ -51,7 +36,7 @@ $(() => {
             //send this data to the server 
             $.ajax({
               type: 'POST',
-              url: "https://fauxcoder.herokuapp.com/",//"http://localhost:3000/",
+              url: "https://fauxcoder.herokuapp.com/update-editor",
               data: source,
               success: function(data){
                   

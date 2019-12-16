@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Controlled as CodeMirror } from "react-codemirror2";
-//import Button from 'react-bootstrap/Button';
-//import Header from "./components/Header";
+import Button from 'react-bootstrap/Button';
+import Header from "./components/Header";
 import Pusher from "pusher-js";
 import pushid from "pushid";
 import axios from "axios";
@@ -47,24 +47,35 @@ class Editor extends Component {
     const data = { ...this.state };
 
     axios
-    .post("https://fauxcoder.herokuapp.com/update-editor", data)
-     // .post("https://fauxcoder.herokuapp.com/update-editor", data)
-      //.post("http://localhost:5000/update-editor", data)
+      .post("https://fauxcoder.herokuapp.com/update-editor", data)
+     // .post("http://localhost:5000/update-editor", data)
       .catch(console.error);
   };
 //  
-
+  handleChange(e){
+    var source_template={
+      "CPP11" : "#include <iostream>\nusing namespace std;\nint main() {\n\t// your code goes here\n\treturn 0;\n}",
+      "JAVA" : "/* package whatever; // don't place package name! */\nimport java.util.*;\nimport java.lang.*;\nimport java.io.*;\n\
+    /* Name of the class has to be \"Main\" only if the class is public. */\nclass Ideone{\n\t\
+    public static void main (String[] args) throws java.lang.Exception{\n\t\t// your code goes here\n\t}\n}",
+      "PYTHON":"# your code goes here"
+    }  
+    this.state.code = source_template.e
+  }
   render() {
     const { code} = this.state;
+    
     return (
     
       <div>
-  {/*      <Header style={{ background: "#1d1f27" }} /> */}
+ 
+       <Header/> 
         <select id="language">
-          <option value = "CPP11">C++</option>
-          <option value = "JAVA">Java</option>
-          <option value = "PYTHON">Python</option>
+          <option value = "CPP11" onChange={this.handleChange} >C++</option>
+          <option value = "JAVA" onChange={this.handleChange}>Java</option>
+          <option value = "PYTHON" onChange={this.handleChange}>Python</option>
         </select>
+        
         <CodeMirror
           className="code-mirror-container"
           value={code}
@@ -72,8 +83,7 @@ class Editor extends Component {
             theme: "dracula",
             lineNumbers: true,
             scrollbarStyle: null,
-            lineWrapping: true,
-            mode: "clike"
+            lineWrapping: true
           }}
           onBeforeChange={(editor, data, code) => {
             this.setState({ code }, () => this.syncUpdates());
@@ -82,7 +92,7 @@ class Editor extends Component {
           
         <div id="outputbox"></div>
         <br/>
-        <button id="compile" variant="outline-primary" value={code}>Compile & run</button>
+        <Button id="compile" variant="outline-primary" value={code} style={{color: "#5ce198", borderColor: "#5ce198" }}>Compile & run</Button>
     </div>  
     );
   }
