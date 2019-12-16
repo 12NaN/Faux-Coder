@@ -15,9 +15,11 @@
 .App-header .extras {
   margin-left: auto;
 }
+
 body{
-  background-color: #5ce198;
+ background-color: #5ce198; 
 }
+
 .App-title {
   color: #fff;
   font-family: 'Press Start 2P', cursive;

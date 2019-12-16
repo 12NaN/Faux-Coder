@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import { Controlled as CodeMirror } from "react-codemirror2";
+//import Button from 'react-bootstrap/Button';
 import Header from "./components/Header";
 import Pusher from "pusher-js";
 import pushid from "pushid";
 import axios from "axios";
 import "./App.css";
-//import "codemirror/lib/codemirror.css";
-//import "codemirror/theme/material.css";
+import "codemirror/lib/codemirror.css";
+import "codemirror/theme/material.css";
 
-//require("codemirror/lib/codemirror.css");
-//require("codemirror/mode/clike/clike");
-//require("codemirror/theme/dracula.css");
+require("codemirror/lib/codemirror.css");
+require("codemirror/mode/clike/clike");
+require("codemirror/theme/dracula.css");
 class Editor extends Component {
   constructor() {
     super();
@@ -81,7 +82,7 @@ class Editor extends Component {
           
         <div id="outputbox"></div>
         <br/>
-        <Button id="compile" variant="outline-primary" value={code}>Compile & run</Button>
+        <button id="compile" variant="outline-primary" value={code}>Compile & run</button>
     </div>  
     );
   }
