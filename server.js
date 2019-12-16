@@ -15,13 +15,9 @@ const pusher = new Pusher({
   useTLS: true,
 });
   // Exprees will serve up production assets
-  app.use(express.static(path.join(__dirname, 'client/build')));
-
   // Express serve up index.html file if it doesn't recognize route
-  const path = require('path');
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -66,6 +62,10 @@ app.post('/', (req, res) => {
         */
         res.send(body);
     });
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 app.set('port', process.env.PORT || 5000);
