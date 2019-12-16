@@ -55,11 +55,6 @@ app.post('/', (req, res) => {
     request(requ, async (err, resp, body) => {
         // Convert data to json
         body = JSON.parse(body);
-        /*
-        var user = await User.findByUsername(req.user.username);
-        user.compiledCodes.push(body.web_link);
-        await user.save();
-        */
         res.send(body);
     });
 });

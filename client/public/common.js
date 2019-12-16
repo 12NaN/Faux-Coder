@@ -51,7 +51,7 @@ $(() => {
             //send this data to the server 
             $.ajax({
               type: 'POST',
-              url: "https://fauxcoder.herokuapp.com/",//"http://localhost:3000/",
+              url: "",//"https://fauxcoder.herokuapp.com/",//"http://localhost:3000/",
               data: source,
               success: function(data){
                   
