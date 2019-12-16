@@ -4,7 +4,6 @@ import Header from "./components/Header";
 import Pusher from "pusher-js";
 import pushid from "pushid";
 import axios from "axios";
-import {Button} from 'react-bootstrap';
 import "./App.css";
 //import "codemirror/lib/codemirror.css";
 //import "codemirror/theme/material.css";
