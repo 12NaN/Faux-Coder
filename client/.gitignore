@@ -4,7 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-
+/public/electron.js
+/electron.js
 # testing
 /coverage
 
