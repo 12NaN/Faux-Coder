@@ -59,7 +59,7 @@ class Editor extends Component {
     return (
     
       <div>
-        <Header style={{ background: "#1d1f27" }} />
+  {/*      <Header style={{ background: "#1d1f27" }} /> */}
         <select id="language">
           <option value = "CPP11">C++</option>
           <option value = "JAVA">Java</option>
