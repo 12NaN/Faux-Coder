@@ -8,6 +8,7 @@
     "pusher-js": "^5.0.3",
     "pushid": "^1.0.0",
     "react": "^15.6.2",
+    "react-bootstrap": "^1.0.0-beta.16",
     "react-codemirror": "^1.0.0",
     "react-codemirror2": "^6.0.0",
     "react-dom": "^15.6.2",
@@ -21,7 +22,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\""
-
   },
   "proxy": "http://localhost:5000/",
   "eslintConfig": {
