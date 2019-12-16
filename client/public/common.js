@@ -44,10 +44,10 @@ $(() => {
                   
                   if(data.compile_status === "OK"){  
                       //code runs successfully - display output
-                      $("#outputbox").text("SUCCESS : " + data.run_status.time_used + "\n" + data.run_status.output );
+                      $("#outputbox").text("SUCCESS : " + data.run_status.time_used + "\n\n" + data.run_status.output );
                   }else {     
                       //there is some error in the code
-                     $("#outputbox").text("COMPILATION ERROR :  " + data.compile_status + "\n" + data.run_status.status_detail);
+                     $("#outputbox").text("COMPILATION ERROR :  " + data.compile_status + "\n\n" + data.run_status.status_detail);
                   }
               }
             });
