@@ -36,7 +36,7 @@ $(() => {
             //send this data to the server 
             $.ajax({
               type: 'POST',
-              url: "https://fauxcoder.herokuapp.com/update-editor",
+              url: "https://fauxcoder.herokuapp.com/",
               data: source,
               success: function(data){
                   
