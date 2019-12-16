@@ -10,9 +10,6 @@ import "./App.css";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/material.css";
 
-import "codemirror/mode/htmlmixed/htmlmixed";
-import "codemirror/mode/css/css";
-import "codemirror/mode/javascript/javascript";
 require("codemirror/lib/codemirror.css");
 require("codemirror/mode/clike/clike");
 require("codemirror/theme/dracula.css");
@@ -51,7 +48,8 @@ class Editor extends Component {
     const data = { ...this.state };
 
     axios
-      .post("https://fauxcoder.herokuapp.com/update-editor", data)
+    .post("https://fauxcoder.herokuapp.com/update-editor", data)
+     // .post("https://fauxcoder.herokuapp.com/update-editor", data)
       //.post("http://localhost:5000/update-editor", data)
       .catch(console.error);
   };

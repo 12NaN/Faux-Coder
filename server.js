@@ -39,7 +39,7 @@ app.post('/', (req, res) => {
     
     // data to be sent to the hackerearth api
     var requ ={
-      url: "https://api.hackerearth.com/v3/code/run/",
+      url: "",//"https://api.hackerearth.com/v3/code/run/",
       method: 'POST',
       form: {
         'client_secret': CLIENT_SECRET,
