@@ -51,7 +51,8 @@ class Editor extends Component {
     const data = { ...this.state };
 
     axios
-      .post("http://localhost:5000/update-editor", data)
+      .post("https://fauxcoder.herokuapp.com/update-editor", data)
+      //.post("http://localhost:5000/update-editor", data)
       .catch(console.error);
   };
 //  
