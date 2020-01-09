@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import Button from 'react-bootstrap/Button';
+import Chat from './components/Chat';
 import Header from "./components/Header";
 import Pusher from "pusher-js";
 import pushid from "pushid";
@@ -13,11 +14,12 @@ require("codemirror/lib/codemirror.css");
 require("codemirror/mode/clike/clike");
 require("codemirror/theme/dracula.css");
 class Editor extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       id: "",
-      code: "#include <iostream>\nusing namespace std;\nint main() {\n\t// your code goes here\n\treturn 0;\n}"
+      code: "#include <iostream>\nusing namespace std;\nint main() {\n\t// your code goes here\n\treturn 0;\n}",
+      room: this.props.room
     };
    
     this.pusher = new Pusher("25fb961369ffad5aeb83", {
@@ -25,7 +27,8 @@ class Editor extends Component {
       forceTLS: true
     });
 
-    this.channel = this.pusher.subscribe("editor");
+    this.channel = this.pusher.subscribe(this.props.room);
+  // this.channel = this.pusher.subscribe("editor");
   }
 
   componentDidMount() {
@@ -48,7 +51,8 @@ class Editor extends Component {
 
     axios
      .post("https://fauxcoder.herokuapp.com/update-editor", data)
-     // .post("http://localhost:5000/update-editor", data)
+   //   .post("http://localhost:5000/update-editor", data)
+   //   .post(`http://localhost:5000/chat?name=${this.props.name}&room=${this.props.room}/update-editor`, data)
       .catch(console.error);
   };
   
@@ -80,14 +84,14 @@ class Editor extends Component {
     return (
     
       <div>
- 
        <Header/> 
         <select id="language" onChange={this.onChange}>
           <option value = "CPP11" >C++</option>
           <option value = "JAVA">Java</option>
           <option value = "PYTHON">Python</option>
         </select>
-        
+        <Chat/>
+
         <CodeMirror
           className="code-mirror-container"
           value={code}
