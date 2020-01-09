@@ -53,7 +53,7 @@ const Chat = ({ location }) => {
   return (
     <div>
       <div>
-          <Editor name = {name} room={room}/>
+          <Editor name = {name} room={'editor'}/>
       </div>
     </div>
   );
