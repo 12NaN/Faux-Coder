@@ -53,7 +53,7 @@ const Chat = ({ location }) => {
   return (
     <div>
       <div>
-          <Editor name = {name} room={'editor'}/>
+          <Editor name = {name} room={'private-' + room}/>
       </div>
     </div>
   );
