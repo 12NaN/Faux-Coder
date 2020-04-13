@@ -1,4 +1,5 @@
-$(() => {
+window.executeHome = function() {
+    // your curren 
     console.log(window.location.href);
 
     //Programming languages mapped to their code in hackerearth api
@@ -22,7 +23,7 @@ $(() => {
             //var text = editor.getSession().getValue();
             //get data for input 
             var input = $("#compile").val();
-            console.log(input);
+            //console.log(input);
             //get the programming language
             var lang = $("#language").val();
             console.log(lang);
@@ -36,8 +37,8 @@ $(() => {
             //send this data to the server 
             $.ajax({
               type: 'POST',
-              url: "https://fauxcoder.herokuapp.com/editor",
-              //url: "http://localhost:3000/editor",
+ //             url: "https://fauxcoder.herokuapp.com/editor",
+              url: "http://localhost:3000/editor",
               data: source,
               success: function(data){
                   
@@ -55,4 +56,4 @@ $(() => {
             return false;
         });
     
-})
+}
