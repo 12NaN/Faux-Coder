@@ -39,7 +39,7 @@ app.post('/pusher/auth', function(req, res) { // authenticate user's who's tryin
 });
 // Post request to compile the code 
 app.post('/editor', (req, res) => {
-//  console.log(req.body);
+ console.log(req.body);
     // hackerearth api secret key
    var CLIENT_SECRET = "926a0a861df9fc10c5cd44d16d3b12cf1a0aef2c";
     
