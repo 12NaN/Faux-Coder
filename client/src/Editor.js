@@ -19,16 +19,16 @@ class Editor extends Component {
     this.state = {
       id: "",
       code: "#include <iostream>\nusing namespace std;\nint main() {\n\t// your code goes here\n\treturn 0;\n}",
-      room: this.props.room
+      room: "private-"+this.props.location.state.room
     };
    
     this.pusher = new Pusher("25fb961369ffad5aeb83", {
       cluster: "us2",
       forceTLS: true
     });
-
-    this.channel = this.pusher.subscribe(this.props.room);
-  // this.channel = this.pusher.subscribe("editor");
+    console.log(this.state.room);
+ //   this.channel = this.pusher.subscribe(this.props.location.state.room);
+   this.channel = this.pusher.subscribe(this.state.room);
   }
 
   componentDidMount() {
@@ -51,8 +51,9 @@ class Editor extends Component {
 
     axios
      .post("https://fauxcoder.herokuapp.com/update-editor", data)
-   //   .post("http://localhost:5000/update-editor", data)
-   //   .post(`http://localhost:5000/chat?name=${this.props.name}&room=${this.props.room}/update-editor`, data)
+    //  .post("http://localhost:5000/update-editor", data)
+   //   .post(`http://localhost:5000/editor?name=${this.props.name}&room=${this.props.room}/update-editor`, data)
+    //  .post(`http://localhost:5000/editor/update-editor`, data)
       .catch(console.error);
   };
   

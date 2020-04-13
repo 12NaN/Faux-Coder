@@ -15,8 +15,9 @@ function App() {
        {/* <Home/> */}
        
        <Router>
+         
           <Route path="/" exact component={Join} /> 
-          <Route path="/Chat" component={Chat} />
+          <Route path="/editor" component={Editor} />
        </Router>
        
       {/* <Editor/>*/}

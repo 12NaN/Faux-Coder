@@ -31,9 +31,14 @@ app.post('/update-editor', (req, res) => {
 
   res.status(200).send('OK');
 });
-
+app.post('/pusher/auth', function(req, res) { // authenticate user's who's trying to connect
+  var socketId = req.body.socket_id;
+  var channel = req.body.channel_name;
+  var auth = pusher.authenticate(socketId, channel);
+  res.send(auth);
+});
 // Post request to compile the code 
-app.post('/', (req, res) => {
+app.post('/editor', (req, res) => {
 //  console.log(req.body);
     // hackerearth api secret key
    var CLIENT_SECRET = "926a0a861df9fc10c5cd44d16d3b12cf1a0aef2c";
