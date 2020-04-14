@@ -6,6 +6,16 @@ const cors = require('cors');
 const Pusher = require('pusher');
 var request = require('request');
 const app = express();
+const server1 = require("http").Server(app);
+const io = require("socket.io")(server1);
+
+io.on("connection", socket => {
+  const { id } = socket.client;
+  console.log(`User Connected: ${id}`);
+  socket.on("chat message", ({ nickname, msg }) => {
+    io.emit("chat message", { nickname, msg });
+  });
+});
 
 const pusher = new Pusher({
   appId: process.env.PUSHER_APP_ID,

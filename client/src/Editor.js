@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import Button from 'react-bootstrap/Button';
-import Chat from './components/Chat';
+import Chat from './components/Chat/Chat';
 import Header from "./components/Header";
 import Pusher from "pusher-js";
 import pushid from "pushid";
@@ -95,7 +95,7 @@ class Editor extends Component {
           <option value = "JAVA">Java</option>
           <option value = "PYTHON">Python</option>
         </select>
-        <Chat/>
+        {/*<Chat name={this.props.location.state.name}/>*/}
 
         <CodeMirror
           className="code-mirror-container"

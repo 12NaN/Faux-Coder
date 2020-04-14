@@ -18,7 +18,7 @@ export default function SignIn() {
         <div>
           <input placeholder="Room" className="joinInput mt-20" type="text" onChange={(event) => setRoom(event.target.value)} />
         </div>
-        <Link onClick={e => (!name || !room) ? e.preventDefault() : null} to={{pathname: '/editor', state: {room:room}}}>
+        <Link onClick={e => (!name || !room) ? e.preventDefault() : null} to={{pathname: '/editor', state: {name: name, room:room}}}>
           <button className={'button mt-20'} style={{backgroundColor: "#5ce198"}} type="submit">Create/Join Room</button>
         </Link>
       </div>
